@@ -37,8 +37,6 @@ jobs:
         shell: bash
         run: |
           mkdir -p public && cp -r public/**/* ./public
-        with:
-          path: ./public
 
   # Deployment job
   deploy:
