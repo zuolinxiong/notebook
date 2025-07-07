@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <div class="container-fluid postPanel">
+    <img class="postImg" src="https://pandapro.halo.nicetheme.xyz/upload/img00022.jpg" alt="">
+    <div class="postContent">
+      <h1 class="container text-center text-white">{{ .Title }}</h1>
+    </div>
+  </div>
+  <div class="container-md contentPanel mt-3">
+    <div class="row listPanel">
+      {{ range .Paginator.Pages }}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+          <a class="itemWrap d-block" href="{{ .RelPermalink }}">
+            <div class="coverImgWrap">
+              <img class="coverImg" src="https://pandapro.halo.nicetheme.xyz/upload/img00060.jpg" alt="" srcset="">
+            </div>
+            <div class="tag">创业分享</div>
+            <div class="itemTitle p-2">{{- .Title -}}</div>
+            <div class="item-meta pl-2 pb-2">
+              <span class="iconfont icon-yanchurili" style="font-size: 0.8rem;"></span>
+              <span>{{- .Date -}}</span>
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+    <div class="paginationWrap d-flex justify-content-center">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </div>
+{{ end }}

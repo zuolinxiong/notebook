@@ -1,0 +1,32 @@
+{
+  "baseURL": "https://example.org/",
+  "languageCode": "en-us",
+  "title": "My New Hugo Site",
+  "page": {
+    "nextPrevInSectionSortOrder": "desc",
+    "nextPrevSortOrder": "desc"
+  },
+  "markup": {
+    "highlight": {
+      "style": "monokai",
+      "codeFences": true,
+      "lineNos": true,
+      "lineNoStart": 1,
+      "tabWidth": 2
+    }
+  },
+  "menus": {
+    "main": [
+      {
+        "name": "首页",
+        "url": "/",
+        "weight": 100
+      },
+      {
+        "name": "前端基础",
+        "url": "/frontBase",
+        "weight": 1
+      }
+    ]
+  }
+}

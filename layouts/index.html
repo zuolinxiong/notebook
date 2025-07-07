@@ -1,0 +1,46 @@
+{{ define "customHead" }}
+  {{ partial "head/linkScss.html" "style/index.scss" }}
+{{ end }}
+{{ define "main" }}
+  <div class="container-md mt-3 bannerPanel">
+    <div class="row">
+      <div class="col">
+        <img width="100%" src="https://orange.demo.nicetheme.xyz/wp-content/uploads/2022/12/2022121307415367.jpg" alt="" srcset=""/>
+      </div>
+    </div>
+  </div>
+  {{ .Content }}
+  {{ range .Pages }}
+    <div class="container-md contentPanel">
+      <div class="headWrap my-3">
+        <div class="moduleTitle">
+          <span>{{ .Title }}</span>
+          <span class="subTitle">{{ .Description }}</span>
+        </div>
+        <div class="moduleMore">
+          <a href="{{ .RelPermalink }}" class="linkText">
+            <span>查看更多</span>
+            <span style="margin-left: -0.3rem;" class="iconfont icon-more"></span>
+          </a>
+        </div>
+      </div>
+      <div class="row listPanel">
+        {{ range .RegularPages.ByTitle.Limit 8 }}
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+            <a class="itemWrap d-block" href="{{ .RelPermalink }}">
+              <div class="coverImgWrap">
+                <img class="coverImg" src="https://pandapro.halo.nicetheme.xyz/upload/img00060.jpg" alt="" srcset="">
+              </div>
+              <div class="tag">{{.Parent.Title }}</div>
+              <div class="itemTitle p-2">{{.Title}}</div>
+              <div class="item-meta pl-2 pb-2">
+                <span class="iconfont icon-yanchurili" style="font-size: 0.8rem; vertical-align: bottom;"></span>
+                <span>{{ .Date | time.Format "2006-01-02" }}</span>
+              </div>
+            </a>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
