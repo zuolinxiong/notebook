@@ -13,11 +13,11 @@
             <div class="coverImgWrap">
               <img class="coverImg" src="https://pandapro.halo.nicetheme.xyz/upload/img00060.jpg" alt="" srcset="">
             </div>
-            <div class="tag">创业分享</div>
+            <div class="tag">{{ .Parent.Title }}</div>
             <div class="itemTitle p-2">{{- .Title -}}</div>
             <div class="item-meta pl-2 pb-2">
               <span class="iconfont icon-yanchurili" style="font-size: 0.8rem;"></span>
-              <span>{{- .Date -}}</span>
+              <span>{{- .Date | time.Format "2006-01-02" -}}</span>
             </div>
           </a>
         </div>

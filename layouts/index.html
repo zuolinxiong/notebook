@@ -28,9 +28,12 @@
         {{ range .RegularPages.ByTitle.Limit 8 }}
           <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
             <a class="itemWrap d-block" href="{{ .RelPermalink }}">
-              <div class="coverImgWrap">
-                <img class="coverImg" src="https://pandapro.halo.nicetheme.xyz/upload/img00060.jpg" alt="" srcset="">
-              </div>
+              {{ $coverImg := .Resources.GetMatch "cover.*" }}
+              {{ if $coverImg }}
+                <div class="coverImgWrap">
+                  <img class="coverImg" src="{{ $coverImg.RelPermalink }}" alt="" srcset="">
+                </div>
+              {{ end }}
               <div class="tag">{{.Parent.Title }}</div>
               <div class="itemTitle p-2">{{.Title}}</div>
               <div class="item-meta pl-2 pb-2">
