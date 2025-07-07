@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "hugo server --disableFastRender",
-    "build": "hugo --minify",
+    "build": "hugo --minify --destination doc",
     "index": "hugo-lunr"
   },
   "author": "",
