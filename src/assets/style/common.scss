@@ -1,0 +1,157 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+// 覆盖原来的变量
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1320px);
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px);
+$modal-xxl: 1320px !important;
+
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/code";
+@import "bootstrap/scss/grid";
+
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/input-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/media";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/utilities";
+
+
+pre{
+  padding: 1rem 0;
+  margin: 0 !important;
+}
+
+
+
+:root{
+  --theme-color: #ff4e4e;
+  --theme-hover: #dd3333;
+  --theme-el-bg-color: #ffffff;
+  --theme-color-h: 0;
+  --theme-color-s: 0%;
+  --theme-color-l: 15%;
+  --theme-color-hsl: var(--theme-color-h), var(--theme-color-s), var(--theme-color-l);
+  --theme-black-color: hsl(var(--theme-color-hsl));
+  --theme-gray-color: hsla(var(--theme-color-hsl), .8);
+  --theme-light-color: hsla(var(--theme-color-hsl), .6);
+  --theme-line-color: hsla(var(--theme-color-hsl), .07);
+  --theme-border-color: hsla(var(--theme-color-hsl), .2);
+  --theme-font-family: "LXGW WenKai Screen R",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+a{
+  &:hover{
+    text-decoration: none !important;
+  }
+}
+.row{
+  margin-left: -10px !important;
+  margin-right: -10px !important;
+}
+.container,.container-fluid,.container-lg,.container-md,.container-sm,.container-xl,.col,.col-1,.col-10,.col-11,.col-12,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-auto,.col-lg,.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-auto,.col-md,.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-auto,.col-sm,.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-auto,.col-xl,.col-xl-1,.col-xl-10,.col-xl-11,.col-xl-12,.col-xl-2,.col-xl-3,.col-xl-4,.col-xl-5,.col-xl-6,.col-xl-7,.col-xl-8,.col-xl-9,.col-xl-auto{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+body{
+  font-family: var(--theme-font-family);
+  background-color: #fafbfc;
+  .header{
+    background-color: var(--theme-el-bg-color);
+    .navbar{
+      padding: 0.5rem 0;
+    }
+    .rightIconWrap{
+      .iconfont{
+        cursor: pointer;
+      }
+    }
+  }
+  .footerPanel{
+    background-color: var(--theme-el-bg-color);
+  }
+}
+.postPanel{
+  position: relative;
+  margin-top: 62px;
+  padding: 6rem 0;
+  overflow: hidden;
+  .postImg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    z-index: 0;
+  }
+  .postContent{
+    position: relative;
+    z-index: 1;
+  }
+}
+.listPanel{
+  .itemWrap{
+    position: relative;
+    color: var(--theme-black-color);
+    background: var(--theme-el-bg-color);
+    cursor: pointer;
+    transition: all .3s ease 0s;
+    border-radius: 3px;
+    overflow: hidden;
+    .coverImgWrap{
+      position: relative;
+      padding: 66.66% 8px 0px;
+      overflow: hidden;
+      .coverImg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #f9f9f9;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .item-meta{
+      font-size: 12px;
+      color: var(--theme-light-color);
+    }
+    .tag{
+      background: rgba(0, 0, 0, .6);
+      border-radius: 2px;
+      color: #fff;
+      filter: alpha(opacity=60);
+      font-size: 12px;
+      left: 10px;
+      line-height: 1;
+      padding: 5px 6px;
+      position: absolute;
+      text-decoration: none;
+      top: 10px;
+    }
+    &:hover{
+      box-shadow: 0 1px 9px 3px rgba(0, 0, 0, .1);
+      transform: translateY(-3px);
+    }
+  }
+}
+

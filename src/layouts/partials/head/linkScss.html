@@ -1,0 +1,11 @@
+{{ $scssFile := resources.Get . }}
+{{ $opts := dict "transpiler" "libsass" "includePaths" (slice "node_modules") }}
+{{ if eq hugo.Environment "development" }}
+  {{ $opts = merge (dict "enableSourceMap" true) $opts }}
+  {{ $scssFile =  $scssFile | toCSS $opts }}
+  <link rel="stylesheet" href="{{ $scssFile.RelPermalink }}">
+{{ else }}
+  {{ $opts = merge (dict "outputStyle" "compressed") $opts }}
+  {{ $scssFile = $scssFile | toCSS $opts | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $scssFile.RelPermalink }}" integrity="{{ $scssFile.Data.Integrity }}" crossorigin="anonymous">
+{{ end }}

@@ -1,0 +1,9 @@
+{{$jsFile := resources.Get .}}
+{{ if eq hugo.Environment "development" }}
+{{ $jsFile = $jsFile | js.Build }}
+  <script type="text/javascript" src="{{ $jsFile.RelPermalink }}"></script>
+{{ else }}
+  {{ $opts := dict "minify" true }}
+  {{ $jsFile = $jsFile | js.Build $opts | fingerprint }}
+  <script type="text/javascript" src="{{ $jsFile.RelPermalink }}" integrity="{{ $jsFile.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}

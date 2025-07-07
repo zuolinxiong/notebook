@@ -1,0 +1,63 @@
+{{ define "customHead"}}
+  {{ partial "head/linkScss" "style/single.scss" }}
+{{ end }}
+{{ define "main" }}
+  <div class="articleDetailPanel my-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card articleContent border-0">
+            {{ $coverImg := .Resources.GetMatch "cover.*" }}
+            {{if $coverImg }}
+              <img class="card-img-top" src="{{ $coverImg.RelPermalink }}" alt="{{ .Title }}" />
+            {{ end }}
+            <div class="card-body">
+              <h1 class="post-title pb-3">{{ .Title }}</h1>
+              {{ .Content }}
+            </div>
+          </div>
+          {{ if or (.PrevInSection) (.NextInSection) }}
+            <div class="row mt-3">
+              <div class="col-sm-12 col-md-6 mb-3">
+                {{ if .PrevInSection }}
+                  <a class="d-block prevPost p-3" href="{{ .PrevInSection.RelPermalink }}" >
+                    {{ $prevImg := .PrevInSection.Resources.GetMatch "cover.*" }}
+                    {{ if $prevImg }}
+                      <img class="nextImg" src="{{ $prevImg.RelPermalink }}" alt="{{ .Title }}" />
+                    {{ end }}
+                    <div class="d-block nextTitle">{{ .PrevInSection.Title }}</div>
+                    <div class="row meta-info">
+                      <div class="col-6">上一篇</div>
+                      <div class="col-6 text-right">2017年11月23日 18:35</div>
+                    </div>
+                  </a>
+                {{ end }}
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3">
+                {{ if .NextInSection }}
+                  <a class="d-block prevPost p-3" href="{{ .NextInSection.RelPermalink }}">
+                    {{ $nextImg := .NextInSection.Resources.GetMatch "cover.*" }}
+                    {{ if $nextImg }}
+                      <img class="nextImg" src="{{ $nextImg.RelPermalink }}" alt="{{ .Title }}" />
+                    {{ end }}
+                    <div class="d-block nextTitle">{{ .NextInSection.Title }}</div>
+                    <div class="row meta-info">
+                      <div class="col-6">2017年11月23日 18:35</div>
+                      <div class="col-6 text-right">下一篇</div>
+                    </div>
+                  </a>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+        </div>
+        <div class="col-lg-4 mb-3 d-none d-lg-block">
+          <div class="tableOfContent sticky-top">
+            <h5 class="title">文章目录<h5/>
+            {{ .TableOfContents }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}
